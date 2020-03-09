@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/message_24dp"
+        android:title="组队信息" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="发布信息" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="个人信息" />
+
+    <!--    新的导航栏组件，id可以随便取，图标可以改，文字可以改-->
+
+</menu>
