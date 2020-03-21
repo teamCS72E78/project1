@@ -20,7 +20,7 @@ public class LocalUserService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         compack x = (compack)intent.getSerializableExtra("this_user");
         if(x.type.equals("login_accepted")){
-            home_user = (Users)x.data;
+            home_user = (Users)x.data[0];
             System.out.println("Username is : " + home_user.username);
         }
         else if(x.type.equals("logout_accepted")){

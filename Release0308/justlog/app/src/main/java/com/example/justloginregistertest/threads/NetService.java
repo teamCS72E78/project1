@@ -26,6 +26,7 @@ import java.net.UnknownHostException;
 import com.example.justloginregistertest.ClassSpace.*;
 import com.example.justloginregistertest.RegisterActivity;
 import com.example.justloginregistertest.loginActivity;
+import com.example.justloginregistertest.ui.home.HomeFragment;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -39,7 +40,7 @@ public class NetService extends IntentService {
     public static InetAddress ip;
     public boolean need_send;
     public static String WAN = "175.24.57.212";
-    public static String LAN = "192.168.0.104";
+    public static String LAN = "192.168.0.107";
 
     private LocalBroadcastManager localBroadcastManager;
 
@@ -78,6 +79,8 @@ public class NetService extends IntentService {
         compack send = (compack)intent.getSerializableExtra("send");
         need_send = intent.getBooleanExtra("need_send", false);
         System.out.println("类型为" + send.type);
+        System.out.println("need_send:" + need_send);
+        compack receive;
 
         try{
             socket = new Socket(LAN, port);
@@ -86,10 +89,15 @@ public class NetService extends IntentService {
                 ObjectOutputStream oos = new ObjectOutputStream(os);
                 oos.writeObject(send);
             }
+
+
             InputStream is = socket.getInputStream();
             ObjectInputStream ois = new ObjectInputStream(is);
 
-            compack receive = (compack)ois.readObject();
+            receive = (compack)ois.readObject();
+
+
+
 
             if (receive.type.equals("login_rejected")){
                 Intent intent0 = new Intent(loginActivity.COM_LOGIN_REJECTED);
@@ -98,6 +106,7 @@ public class NetService extends IntentService {
             }
             else if(receive.type.equals("login_accepted")){
                 Intent intent0 = new Intent(loginActivity.COM_LOGIN_ACCEPTED);
+                intent0.putExtra("status", true);
                 //localBroadcastManager.sendBroadcast(intent0);
                 LocalBroadcastManager.getInstance(this).sendBroadcast(intent0);
             }else if(receive.type.equals("register accepted")){
@@ -108,8 +117,11 @@ public class NetService extends IntentService {
                 Intent intent0 = new Intent(RegisterActivity.COM_REGISTER_REJECTED);
                 //localBroadcastManager.sendBroadcast(intent0);
                 LocalBroadcastManager.getInstance(this).sendBroadcast(intent0);
+            }else if(receive.type.equals("refresh list")){
+                Intent intent0 = new Intent(HomeFragment.COM_GET_MESSAGE);
+                intent0.putExtra("data_list", receive);
+                LocalBroadcastManager.getInstance(this).sendBroadcast(intent0);
             }
-
 
         }catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
