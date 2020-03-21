@@ -10,12 +10,20 @@ public class compack extends Object implements Serializable{
     public String type;                             //标明传输包群的请求类型或者返回类型
     public int total_num;                           //标明包群的总数量
     public int id;                                  //标明当前包的id
-    public Object data;                             //标明当前包的数据对象（只要是继承Object的子对象都可以
+    public Object data[] = new Object[100];                             //标明当前包的数据对象（只要是继承Object的子对象都可以
     public boolean is_last_pack;                    //标明是否为包群的最后一个包
 
     public compack(){}
 
     public compack(String type,int total_num,int id,Object data,boolean is_last_pack){              //生成一个包
+        this.type = type;
+        this.total_num = total_num;
+        this.id = id;
+        this.data[0] = data;
+        this.is_last_pack = is_last_pack;
+    }
+
+    public compack(String type,int total_num,int id,Object data[],boolean is_last_pack){              //生成一个包
         this.type = type;
         this.total_num = total_num;
         this.id = id;
