@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.justloginregistertest.R;
 
 import java.util.List;
@@ -21,7 +24,8 @@ public class ListViewAdapter extends BaseAdapter {
 
     private List<Map<String, Object>> data;
 
-
+    private FragmentManager fmanager;
+    private FragmentTransaction transaction;
 
     private LayoutInflater layoutInflater;
     private Context context;
@@ -91,9 +95,21 @@ public class ListViewAdapter extends BaseAdapter {
 
             }
         });
+//        zujian.btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
         return convertView;
     }
 
+//        public void Click_modify(View view) {
+//        fmanager = getSupportFragmentManager();
+//        transaction = fmanager.beginTransaction();
+//        transaction.replace(R.id.nav_host_fragment, new DashboardFragment());
+//        transaction.commit();
+//    }
 }

@@ -83,7 +83,7 @@ public class NetService extends IntentService {
         compack receive;
 
         try{
-            socket = new Socket(LAN, port);
+            socket = new Socket(WAN, port);
             if(need_send) {
                 OutputStream os = socket.getOutputStream();
                 ObjectOutputStream oos = new ObjectOutputStream(os);
