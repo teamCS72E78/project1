@@ -38,8 +38,8 @@ public class AddMessage extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        add_return.setOnClickListener(new View.OnClickListener(){
 
+        add_return.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AddMessage.this,MainActivity.class);

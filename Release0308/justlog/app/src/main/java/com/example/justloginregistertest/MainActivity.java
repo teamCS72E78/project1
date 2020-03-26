@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.justloginregistertest.Dialog.AddMessage;
 import com.example.justloginregistertest.ui.dashboard.DashboardFragment;
 import com.example.justloginregistertest.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,11 +24,10 @@ import com.example.justloginregistertest.ui.home.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentManager fm;
-
-
-
-
+  /*  private FragmentManager fmanger;
+    private FragmentTransaction transaction;
+    public Button btn_modify;
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +44,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
 
-
-
     }
 
+    public void Click_modify(View view) {
+        Intent intent = new Intent(MainActivity.this, AddMessage.class);
+        startActivity(intent);
+    }
+
+    public void Click_signout(View view) {
+        Intent intent = new Intent(MainActivity.this, loginActivity.class);
+        startActivity(intent);
+    }
 }

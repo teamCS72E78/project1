@@ -18,18 +18,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textColor="#666872" />
-        <TextView
-            android:id="@+id/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#666872"
-            android:textSize="30dp"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:textColor="#666872" />
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666872"
+                android:textSize="30dp"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -41,21 +41,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="详情"
-            android:onClick="onClick"
+            android:onClick="Click_information"
             android:layout_gravity="bottom|right"/>
         <Button
             android:id="@+id/modify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="修改"
-            android:onClick="onClick"
+            android:onClick="Click_modify"
             android:layout_gravity="bottom|right"/>
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="删除"
-            android:onClick="onClick"
+            android:onClick="Click_delete"
             android:layout_gravity="bottom|right"/>
 
     </LinearLayout>
